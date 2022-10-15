@@ -1,16 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<h1 v-if="likes > 0">Likes You Have: {{ likes }}</h1>
+
+<h1 v-else>Nothing to Count</h1>
+<b-button variant="danger" v-on:click="like()">
+Like
+</b-button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      likes: 0,
+    }
+  },
+  methods: {
+    like() {
+      this.likes++;
+      alert('Thanks!')
+    }
   }
+
 }
 </script>
 
@@ -23,4 +37,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
